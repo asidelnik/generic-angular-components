@@ -1,0 +1,33 @@
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #f0f0f0;
+  
+  nav {
+    height: 100vh;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+
+      &:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+      }
+      
+      &.active {
+        background-color: #ddd;
+        cursor: pointer;
+      }
+    }
+  }
+}
