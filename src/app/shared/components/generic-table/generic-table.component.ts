@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TableColumn } from '../../../interfaces/tableColumn';
+import { DataUnionType } from '../../../interfaces/union';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-generic-table',
@@ -9,11 +11,11 @@ import { TableColumn } from '../../../interfaces/tableColumn';
   styleUrl: './generic-table.component.scss',
 })
 export class GenericTableComponent implements OnInit {
-  @Input() data: any[];
-  @Input() columns: TableColumn[];
+  @Input() columns: TableColumn[] = [];
+  @Input() data: DataUnionType[] = [];
 
   displayedColumns: string[] = [];
-  dataSource: MatTableDataSource<any>;
+  dataSource: MatTableDataSource<DataUnionType> | undefined;
 
   ngOnInit() {
     this.displayedColumns = this.columns
