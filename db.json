@@ -1,5 +1,5 @@
 {
-  "loanTypes": [
+  "loan-types": [
     {
       "id": 1,
       "name": "Loan Type 1",
@@ -261,7 +261,7 @@
       "updatedAt": "2024-04-08T15:49:57.607Z"
     }
   ],
-  "subLoanTypes": [
+  "sub-loan-types": [
     {
       "id": 1,
       "loanTypeId": 3,
@@ -543,7 +543,7 @@
       "updatedAt": "2024-04-08T15:53:39.108Z"
     }
   ],
-  "loanRequest": [
+  "loan-request": [
     {
       "id": 1,
       "loanTypeId": 3,
