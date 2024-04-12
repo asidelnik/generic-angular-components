@@ -1,0 +1,88 @@
+import { TableColumn } from '../../interfaces/tableColumn';
+
+export const subLoanTypesColumns: TableColumn[] = [
+  {
+    name: 'id',
+    label: 'ID',
+    order: 1,
+    isSortable: false,
+    pipe: 'string',
+  },
+  {
+    name: 'loanTypeId',
+    label: 'Loan Type ID',
+    order: 2,
+    isSortable: false,
+    pipe: 'string',
+  },
+  {
+    name: 'name',
+    label: 'Name',
+    order: 3,
+    isSortable: false,
+    pipe: 'string',
+  },
+  {
+    name: 'description',
+    label: 'Description',
+    order: 4,
+    isSortable: false,
+    pipe: 'string',
+  },
+  {
+    name: 'interestRate',
+    label: 'Interest Rate',
+    order: 5,
+    isSortable: false,
+    pipe: 'decimal',
+  },
+  {
+    name: 'maxAmount',
+    label: 'Max Amount',
+    order: 6,
+    isSortable: false,
+    pipe: 'currency',
+  },
+  {
+    name: 'minAmount',
+    label: 'Min Amount',
+    order: 7,
+    isSortable: false,
+    pipe: 'currency',
+  },
+  {
+    name: 'maxPeriod',
+    label: 'Max Period',
+    order: 8,
+    isSortable: false,
+    pipe: 'string',
+  },
+  {
+    name: 'minPeriod',
+    label: 'Min Period',
+    order: 9,
+    isSortable: false,
+    pipe: 'string',
+  },
+  {
+    name: 'status',
+    label: 'Status',
+    order: 10,
+    isSortable: false,
+    pipe: 'string',
+  },
+  {
+    name: 'createdAt',
+    label: 'Created At',
+    order: 11,
+    isSortable: false,
+    pipe: 'date',
+  },
+  {
+    name: 'updatedAt',
+    label: 'Updated At',
+    order: 12,
+    isSortable: false,
+    pipe: 'date',
+  },
+];

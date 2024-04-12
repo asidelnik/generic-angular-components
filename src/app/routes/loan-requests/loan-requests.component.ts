@@ -3,7 +3,7 @@ import { ILoanRequest } from '../../interfaces/loanRequest';
 import { DataService } from '../../shared/services/data/data.service';
 import { GenericTableComponent } from '../../shared/components/generic-table/generic-table.component';
 import { TableColumn } from '../../interfaces/tableColumn';
-import { loanRequestColumns } from '../../constants/table-columns/loanRequestColumns';
+import { loanRequestsColumns } from '../../constants/table-columns/loanRequestsColumns';
 
 @Component({
   selector: 'app-loan-requests',
@@ -14,7 +14,7 @@ import { loanRequestColumns } from '../../constants/table-columns/loanRequestCol
 })
 export class LoanRequestsComponent implements OnInit {
   tableData: ILoanRequest[] = [];
-  tableColumns: TableColumn[] = loanRequestColumns;
+  tableColumns: TableColumn[] = loanRequestsColumns;
 
   constructor(private dataService: DataService) {}
   ngOnInit() {
