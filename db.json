@@ -543,9 +543,10 @@
       "updatedAt": "2024-04-08T15:53:39.108Z"
     }
   ],
-  "loan-request": [
+  "loan-requests": [
     {
       "id": 1,
+      "userId": "391500478",
       "loanTypeId": 3,
       "subLoanTypeId": 11,
       "customerId": 62,
@@ -557,6 +558,7 @@
     },
     {
       "id": 2,
+      "userId": "975096163",
       "loanTypeId": 19,
       "subLoanTypeId": 1,
       "customerId": 68,
@@ -568,6 +570,7 @@
     },
     {
       "id": 3,
+      "userId": "557450541",
       "loanTypeId": 2,
       "subLoanTypeId": 10,
       "customerId": 12,
@@ -579,6 +582,7 @@
     },
     {
       "id": 4,
+      "userId": "150100865",
       "loanTypeId": 10,
       "subLoanTypeId": 14,
       "customerId": 11,
@@ -590,6 +594,7 @@
     },
     {
       "id": 5,
+      "userId": "149708575",
       "loanTypeId": 20,
       "subLoanTypeId": 7,
       "customerId": 25,
@@ -601,6 +606,7 @@
     },
     {
       "id": 6,
+      "userId": "238689927",
       "loanTypeId": 2,
       "subLoanTypeId": 6,
       "customerId": 57,
@@ -612,6 +618,7 @@
     },
     {
       "id": 7,
+      "userId": "463022879",
       "loanTypeId": 12,
       "subLoanTypeId": 1,
       "customerId": 43,
@@ -623,6 +630,7 @@
     },
     {
       "id": 8,
+      "userId": "92932386",
       "loanTypeId": 4,
       "subLoanTypeId": 9,
       "customerId": 94,
@@ -634,6 +642,7 @@
     },
     {
       "id": 9,
+      "userId": "700618960",
       "loanTypeId": 9,
       "subLoanTypeId": 9,
       "customerId": 79,
@@ -645,6 +654,7 @@
     },
     {
       "id": 10,
+      "userId": "377201290",
       "loanTypeId": 12,
       "subLoanTypeId": 20,
       "customerId": 70,
@@ -656,6 +666,7 @@
     },
     {
       "id": 11,
+      "userId": "961282628",
       "loanTypeId": 12,
       "subLoanTypeId": 14,
       "customerId": 96,
@@ -667,6 +678,7 @@
     },
     {
       "id": 12,
+      "userId": "215132073",
       "loanTypeId": 10,
       "subLoanTypeId": 1,
       "customerId": 97,
@@ -678,6 +690,7 @@
     },
     {
       "id": 13,
+      "userId": "562364734",
       "loanTypeId": 8,
       "subLoanTypeId": 5,
       "customerId": 35,
@@ -689,6 +702,7 @@
     },
     {
       "id": 14,
+      "userId": "857034133",
       "loanTypeId": 7,
       "subLoanTypeId": 2,
       "customerId": 85,
@@ -700,6 +714,7 @@
     },
     {
       "id": 15,
+      "userId": "614802454",
       "loanTypeId": 7,
       "subLoanTypeId": 17,
       "customerId": 61,
@@ -711,6 +726,7 @@
     },
     {
       "id": 16,
+      "userId": "247071084",
       "loanTypeId": 4,
       "subLoanTypeId": 2,
       "customerId": 53,
@@ -722,6 +738,7 @@
     },
     {
       "id": 17,
+      "userId": "132584871",
       "loanTypeId": 2,
       "subLoanTypeId": 20,
       "customerId": 59,
@@ -733,6 +750,7 @@
     },
     {
       "id": 18,
+      "userId": "353853972",
       "loanTypeId": 6,
       "subLoanTypeId": 8,
       "customerId": 34,
@@ -744,6 +762,7 @@
     },
     {
       "id": 19,
+      "userId": "334888956",
       "loanTypeId": 11,
       "subLoanTypeId": 5,
       "customerId": 31,
@@ -755,6 +774,7 @@
     },
     {
       "id": 20,
+      "userId": "78762302",
       "loanTypeId": 15,
       "subLoanTypeId": 16,
       "customerId": 97,

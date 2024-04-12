@@ -1,6 +1,6 @@
 export interface ILoanRequest {
   id: number;
-  userId: number;
+  userId: string;
   loanTypeId: number;
   subLoanTypeId: number;
   amount: number;
