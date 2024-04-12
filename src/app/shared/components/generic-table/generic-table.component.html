@@ -6,7 +6,7 @@
       mat-sort-header
       [attr.disabled]="!column.isSortable ? true : null"
     >
-      {{ column.name }}
+      {{ column.label }}
     </th>
     <td mat-cell *matCellDef="let element">{{ transformData(column, element[column.name]) }}</td>
   </ng-container>
