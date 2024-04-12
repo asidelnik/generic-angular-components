@@ -8,6 +8,7 @@ import {
 import { TableColumn } from '../../../interfaces/tableColumn';
 import { DataUnionType } from '../../../interfaces/union';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {
   CommonModule,
   CurrencyPipe,
@@ -18,7 +19,7 @@ import {
 @Component({
   selector: 'app-generic-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, DatePipe],
+  imports: [CommonModule, MatTableModule, MatProgressSpinnerModule, DatePipe],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
 })
@@ -27,6 +28,7 @@ export class GenericTableComponent implements OnInit, OnChanges {
   @Input() data: DataUnionType[] = [];
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<DataUnionType> = new MatTableDataSource();
+  isLoading = true;
 
   constructor(
     private datePipe: DatePipe,
@@ -43,6 +45,9 @@ export class GenericTableComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.dataSource = new MatTableDataSource(this.data);
+      console.log(this.isLoading);
+      if (this.data.length > 0) this.isLoading = false;
+      console.log(this.isLoading);
     }
   }
 

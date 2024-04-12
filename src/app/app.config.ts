@@ -9,6 +9,7 @@ import {
   DatePipe,
   DecimalPipe,
 } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,5 +19,6 @@ export const appConfig: ApplicationConfig = {
     CurrencyPipe,
     DecimalPipe,
     CommonModule,
+    MatProgressSpinnerModule,
   ],
 };
