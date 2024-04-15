@@ -9,6 +9,5 @@ export const routes: Routes = [
   { path: 'loan-types', component: LoanTypesComponent },
   { path: 'sub-loan-types', component: SubLoanTypesComponent },
   { path: 'loan-requests', component: LoanRequestsComponent },
-  { path: 'lifecycle-demo', component: LifecycleDemoComponent },
   { path: '**', redirectTo: 'home' },
 ];
