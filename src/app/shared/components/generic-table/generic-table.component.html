@@ -2,9 +2,12 @@
   <span class="loader"></span>
 </div>
 
-<div class="container">
-  <table mat-table [dataSource]="dataSource" *ngIf="!isLoading">
+<div class="container" *ngIf="!isLoading">
+  <!-- Bind data to display to table -->
+  <table mat-table [dataSource]="dataSource">
+    <!-- Iterate hard coded columns array -->
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.name">
+      <!-- Column header cell -->
       <th
         mat-header-cell
         *matHeaderCellDef
@@ -13,12 +16,16 @@
       >
         {{ column.label }}
       </th>
+      <!-- Column data cell -->
       <td mat-cell *matCellDef="let element">
         {{ transformData(column, element[column.name]) }}
       </td>
     </ng-container>
 
+    <!-- Define columns to be displayed in the header row -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    
+    <!-- Define columns to be displayed in the data rows -->
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
