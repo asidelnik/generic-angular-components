@@ -6,7 +6,7 @@
   <!-- Bind data to display to table -->
   <table mat-table [dataSource]="dataSource">
     <!-- Iterate hard coded columns array -->
-    <ng-container *ngFor="let column of columns" [matColumnDef]="column.name">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.label">
       <!-- Column header cell -->
       <th
         mat-header-cell

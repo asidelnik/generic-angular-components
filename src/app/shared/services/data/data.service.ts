@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
-import { ILoanType } from '../../../interfaces/loanType';
-import { ISubLoanType } from '../../../interfaces/subLoanType';
-import { ILoanRequest } from '../../../interfaces/loanRequest';
+import { ILoanType } from '../../../interfaces/ILoanType';
+import { ISubLoanType } from '../../../interfaces/ISubLoanType';
+import { ILoanRequest } from '../../../interfaces/ILoanRequest';
 import { baseUrl, serverPaths } from '../../../constants/api';
 import { HttpClient } from '@angular/common/http';
 

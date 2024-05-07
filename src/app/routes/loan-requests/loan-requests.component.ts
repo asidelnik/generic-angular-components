@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ILoanRequest } from '../../interfaces/loanRequest';
+import { ILoanRequest } from '../../interfaces/ILoanRequest';
 import { DataService } from '../../shared/services/data/data.service';
 import { GenericTableComponent } from '../../shared/components/generic-table/generic-table.component';
-import { TableColumn } from '../../interfaces/tableColumn';
 import { loanRequestsColumns } from '../../constants/table-columns/loanRequestsColumns';
 import { Subscription } from 'rxjs';
+import { ITableColumn } from '../../interfaces/IGenericTableAndForm';
 
 @Component({
   selector: 'app-loan-requests',
@@ -15,7 +15,9 @@ import { Subscription } from 'rxjs';
 })
 export class LoanRequestsComponent implements OnInit, OnDestroy {
   tableData: ILoanRequest[] = [];
-  tableColumns: TableColumn[] = loanRequestsColumns;
+  tableColumns: ITableColumn[] = Object.values(loanRequestsColumns).map(
+    (value) => value.tableColumn
+  );
   dataSubscription: Subscription = new Subscription();
 
   constructor(private dataService: DataService) {}

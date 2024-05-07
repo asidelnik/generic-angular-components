@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data/data.service';
-import { ISubLoanType } from '../../interfaces/subLoanType';
+import { ISubLoanType } from '../../interfaces/ISubLoanType';
 import { GenericTableComponent } from '../../shared/components/generic-table/generic-table.component';
-import { TableColumn } from '../../interfaces/tableColumn';
 import { subLoanTypesColumns } from '../../constants/table-columns/subLoanTypesColumns';
 import { Subscription } from 'rxjs';
+import { ITableColumn } from '../../interfaces/IGenericTableAndForm';
 
 @Component({
   selector: 'app-sub-loan-types',
@@ -15,7 +15,9 @@ import { Subscription } from 'rxjs';
 })
 export class SubLoanTypesComponent implements OnInit, OnDestroy {
   tableData: ISubLoanType[] = [];
-  tableColumns: TableColumn[] = subLoanTypesColumns;
+  tableColumns: ITableColumn[] = Object.values(subLoanTypesColumns).map(
+    (value) => value.tableColumn
+  );
   dataSubscription: Subscription = new Subscription();
 
   constructor(private dataService: DataService) {}

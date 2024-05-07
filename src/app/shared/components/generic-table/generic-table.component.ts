@@ -2,10 +2,10 @@ import {
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { TableColumn } from '../../../interfaces/tableColumn';
 import { DataUnionType } from '../../../interfaces/union';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -15,6 +15,7 @@ import {
   DatePipe,
   DecimalPipe,
 } from '@angular/common';
+import { ITableColumn } from '../../../interfaces/IGenericTableAndForm';
 
 @Component({
   selector: 'app-generic-table',
@@ -23,8 +24,8 @@ import {
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
 })
-export class GenericTableComponent implements OnInit, OnChanges {
-  @Input() columns: TableColumn[] = [];
+export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() columns: ITableColumn[] = [];
   @Input() data: DataUnionType[] = [];
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<DataUnionType> = new MatTableDataSource();
@@ -39,19 +40,17 @@ export class GenericTableComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.displayedColumns = this.columns
       .sort((a, b) => a.order - b.order)
-      .map((column) => column.name);
+      .map((field) => field.label);
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.dataSource = new MatTableDataSource(this.data);
-      console.log(this.isLoading);
       if (this.data.length > 0) this.isLoading = false;
-      console.log(this.isLoading);
     }
   }
 
-  transformData(column: TableColumn, data: any): any {
+  transformData(column: ITableColumn, data: any): any {
     if (column.pipe === 'string') {
       return data;
     } else if (column.pipe === 'date') {
@@ -63,5 +62,9 @@ export class GenericTableComponent implements OnInit, OnChanges {
     }
 
     return data;
+  }
+
+  ngOnDestroy() {
+    this.dataSource = new MatTableDataSource();
   }
 }
