@@ -1,5 +1,5 @@
-import { ILoanRequest } from './loanRequest';
-import { ILoanType } from './loanType';
-import { ISubLoanType } from './subLoanType';
+import { ILoanRequest } from './ILoanRequest';
+import { ILoanType } from './ILoanType';
+import { ISubLoanType } from './ISubLoanType';
 
 export type DataUnionType = ILoanType | ISubLoanType | ILoanRequest;
