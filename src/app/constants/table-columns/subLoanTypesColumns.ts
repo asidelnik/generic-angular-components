@@ -1,88 +1,183 @@
-import { TableColumn } from '../../interfaces/tableColumn';
+import { FieldsData } from '../../interfaces/IGenericTableAndForm';
+import { ISubLoanType } from '../../interfaces/ISubLoanType';
 
-export const subLoanTypesColumns: TableColumn[] = [
-  {
-    name: 'id',
-    label: 'ID',
-    order: 1,
-    isSortable: false,
-    pipe: 'string',
+type SubLoanTypesFieldsDataType = FieldsData<ISubLoanType>;
+
+export const subLoanTypesColumns: SubLoanTypesFieldsDataType = {
+  id: {
+    type: 'number',
+    tableColumn: {
+      label: 'ID',
+      name: 'id',
+      order: 1,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'loanTypeId',
-    label: 'Loan Type ID',
-    order: 2,
-    isSortable: false,
-    pipe: 'string',
+  loanTypeId: {
+    type: 'number',
+    tableColumn: {
+      label: 'Loan Type ID',
+      name: 'loanTypeId',
+      order: 2,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'name',
-    label: 'Name',
-    order: 3,
-    isSortable: false,
-    pipe: 'string',
+  name: {
+    type: 'string',
+    tableColumn: {
+      label: 'Name',
+      name: 'name',
+      order: 3,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'description',
-    label: 'Description',
-    order: 4,
-    isSortable: false,
-    pipe: 'string',
+  description: {
+    type: 'string',
+    tableColumn: {
+      label: 'Description',
+      name: 'description',
+      order: 4,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'interestRate',
-    label: 'Interest Rate',
-    order: 5,
-    isSortable: false,
-    pipe: 'decimal',
+  interestRate: {
+    type: 'number',
+    tableColumn: {
+      label: 'Interest Rate',
+      name: 'interestRate',
+      order: 5,
+      isSortable: false,
+      pipe: 'decimal',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'maxAmount',
-    label: 'Max Amount',
-    order: 6,
-    isSortable: false,
-    pipe: 'currency',
+  maxAmount: {
+    type: 'number',
+    tableColumn: {
+      label: 'Max Amount',
+      name: 'maxAmount',
+      order: 6,
+      isSortable: false,
+      pipe: 'currency',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'minAmount',
-    label: 'Min Amount',
-    order: 7,
-    isSortable: false,
-    pipe: 'currency',
+  minAmount: {
+    type: 'number',
+    tableColumn: {
+      label: 'Min Amount',
+      name: 'minAmount',
+      order: 7,
+      isSortable: false,
+      pipe: 'currency',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'maxPeriod',
-    label: 'Max Period',
-    order: 8,
-    isSortable: false,
-    pipe: 'string',
+  maxPeriod: {
+    type: 'number',
+    tableColumn: {
+      label: 'Max Period',
+      name: 'maxPeriod',
+      order: 8,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: null,
+    tableFilterField: null,
   },
-  {
-    name: 'minPeriod',
-    label: 'Min Period',
-    order: 9,
-    isSortable: false,
-    pipe: 'string',
+  minPeriod: {
+    type: 'number',
+    tableColumn: {
+      label: 'Min Period',
+      name: 'minPeriod',
+      order: 8,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: {
+      label: 'Min Period',
+      type: 'number',
+      required: true,
+    },
+    tableFilterField: {
+      label: 'Min Period',
+      type: 'number',
+      required: true,
+    },
   },
-  {
-    name: 'status',
-    label: 'Status',
-    order: 10,
-    isSortable: false,
-    pipe: 'string',
+  status: {
+    type: 'boolean',
+    tableColumn: {
+      label: 'Status',
+      name: 'status',
+      order: 9,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: {
+      label: 'Status',
+      type: 'checkbox',
+      required: true,
+    },
+    tableFilterField: {
+      label: 'Status',
+      type: 'checkbox',
+      required: true,
+    },
   },
-  {
-    name: 'createdAt',
-    label: 'Created At',
-    order: 11,
-    isSortable: false,
-    pipe: 'date',
+  createdAt: {
+    type: 'date',
+    tableColumn: {
+      label: 'Created At',
+      name: 'createdAt',
+      order: 10,
+      isSortable: false,
+      pipe: 'date',
+    },
+    formField: {
+      label: 'Created At',
+      type: 'date',
+      required: true,
+    },
+    tableFilterField: {
+      label: 'Created At',
+      type: 'date',
+      required: true,
+    },
   },
-  {
-    name: 'updatedAt',
-    label: 'Updated At',
-    order: 12,
-    isSortable: false,
-    pipe: 'date',
+  updatedAt: {
+    type: 'date',
+    tableColumn: {
+      label: 'Updated At',
+      name: 'updatedAt',
+      order: 11,
+      isSortable: false,
+      pipe: 'date',
+    },
+    formField: {
+      label: 'Updated At',
+      type: 'date',
+      required: true,
+    },
+    tableFilterField: {
+      label: 'Updated At',
+      type: 'date',
+      required: true,
+    },
   },
-];
+};
