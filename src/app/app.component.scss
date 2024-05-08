@@ -13,7 +13,7 @@ main {
   justify-content: flex-start;
   align-items: flex-start;
   height: calc(100vh - 67px);
-  background-color: #f0f0f0;
+  background-color: hsl(0, 0%, 94%);
   
   nav {
     height: 100%;
@@ -31,12 +31,12 @@ main {
       // border-bottom: 1px solid #ddd;
 
       &:hover {
-        background-color: #f0f0f0;
+        background-color: hsl(0, 0%, 94%);
         cursor: pointer;
       }
       
       &.active {
-        background-color: #ddd;
+        background-color: hsl(0, 0%, 87%);
         cursor: pointer;
       }
     }
