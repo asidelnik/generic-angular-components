@@ -23,7 +23,7 @@
     </ng-container>
 
     <!-- Define columns to be displayed in the header row -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" sticky class="table-header-row"></tr>
     
     <!-- Define columns to be displayed in the data rows -->
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
