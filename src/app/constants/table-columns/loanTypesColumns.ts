@@ -79,32 +79,12 @@ export const loanTypesFieldsData: LoanTypesFieldsDataType = {
       required: true,
     },
   },
-  maxAmount: {
-    type: 'number',
-    tableColumn: {
-      label: 'Max Amount',
-      name: 'maxAmount',
-      order: 5,
-      isSortable: false,
-      pipe: 'currency',
-    },
-    formField: {
-      label: 'Max Amount',
-      type: 'number',
-      required: true,
-    },
-    tableFilterField: {
-      label: 'Max Amount',
-      type: 'number',
-      required: true,
-    },
-  },
   minAmount: {
     type: 'number',
     tableColumn: {
       label: 'Min Amount',
       name: 'minAmount',
-      order: 6,
+      order: 5,
       isSortable: false,
       pipe: 'currency',
     },
@@ -119,22 +99,22 @@ export const loanTypesFieldsData: LoanTypesFieldsDataType = {
       required: true,
     },
   },
-  maxPeriod: {
+  maxAmount: {
     type: 'number',
     tableColumn: {
-      label: 'Max Period',
-      name: 'maxPeriod',
-      order: 7,
+      label: 'Max Amount',
+      name: 'maxAmount',
+      order: 6,
       isSortable: false,
-      pipe: 'string',
+      pipe: 'currency',
     },
     formField: {
-      label: 'Max Period',
+      label: 'Max Amount',
       type: 'number',
       required: true,
     },
     tableFilterField: {
-      label: 'Max Period',
+      label: 'Max Amount',
       type: 'number',
       required: true,
     },
@@ -144,7 +124,7 @@ export const loanTypesFieldsData: LoanTypesFieldsDataType = {
     tableColumn: {
       label: 'Min Period',
       name: 'minPeriod',
-      order: 8,
+      order: 7,
       isSortable: false,
       pipe: 'string',
     },
@@ -155,6 +135,26 @@ export const loanTypesFieldsData: LoanTypesFieldsDataType = {
     },
     tableFilterField: {
       label: 'Min Period',
+      type: 'number',
+      required: true,
+    },
+  },
+  maxPeriod: {
+    type: 'number',
+    tableColumn: {
+      label: 'Max Period',
+      name: 'maxPeriod',
+      order: 8,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: {
+      label: 'Max Period',
+      type: 'number',
+      required: true,
+    },
+    tableFilterField: {
+      label: 'Max Period',
       type: 'number',
       required: true,
     },

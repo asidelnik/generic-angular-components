@@ -64,11 +64,11 @@ export const subLoanTypesColumns: SubLoanTypesFieldsDataType = {
     formField: null,
     tableFilterField: null,
   },
-  maxAmount: {
+  minAmount: {
     type: 'number',
     tableColumn: {
-      label: 'Max Amount',
-      name: 'maxAmount',
+      label: 'Min Amount',
+      name: 'minAmount',
       order: 6,
       isSortable: false,
       pipe: 'currency',
@@ -76,26 +76,14 @@ export const subLoanTypesColumns: SubLoanTypesFieldsDataType = {
     formField: null,
     tableFilterField: null,
   },
-  minAmount: {
+  maxAmount: {
     type: 'number',
     tableColumn: {
-      label: 'Min Amount',
-      name: 'minAmount',
+      label: 'Max Amount',
+      name: 'maxAmount',
       order: 7,
       isSortable: false,
       pipe: 'currency',
-    },
-    formField: null,
-    tableFilterField: null,
-  },
-  maxPeriod: {
-    type: 'number',
-    tableColumn: {
-      label: 'Max Period',
-      name: 'maxPeriod',
-      order: 8,
-      isSortable: false,
-      pipe: 'string',
     },
     formField: null,
     tableFilterField: null,
@@ -120,12 +108,24 @@ export const subLoanTypesColumns: SubLoanTypesFieldsDataType = {
       required: true,
     },
   },
+  maxPeriod: {
+    type: 'number',
+    tableColumn: {
+      label: 'Max Period',
+      name: 'maxPeriod',
+      order: 9,
+      isSortable: false,
+      pipe: 'string',
+    },
+    formField: null,
+    tableFilterField: null,
+  },
   status: {
     type: 'boolean',
     tableColumn: {
       label: 'Status',
       name: 'status',
-      order: 9,
+      order: 10,
       isSortable: false,
       pipe: 'string',
     },
@@ -145,7 +145,7 @@ export const subLoanTypesColumns: SubLoanTypesFieldsDataType = {
     tableColumn: {
       label: 'Created At',
       name: 'createdAt',
-      order: 10,
+      order: 11,
       isSortable: false,
       pipe: 'date',
     },
@@ -165,7 +165,7 @@ export const subLoanTypesColumns: SubLoanTypesFieldsDataType = {
     tableColumn: {
       label: 'Updated At',
       name: 'updatedAt',
-      order: 11,
+      order: 12,
       isSortable: false,
       pipe: 'date',
     },

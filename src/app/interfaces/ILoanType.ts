@@ -3,10 +3,10 @@ export interface ILoanType {
   name: string;
   description: string;
   interestRate: number;
-  maxAmount: number;
   minAmount: number;
-  maxPeriod: number;
+  maxAmount: number;
   minPeriod: number;
+  maxPeriod: number;
   status: boolean;
   createdAt: Date;
   updatedAt: Date;
