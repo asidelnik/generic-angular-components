@@ -5,6 +5,7 @@ import { GenericTableComponent } from '../../shared/components/generic-table/gen
 import { loanRequestsColumns } from '../../constants/table-columns/loanRequestsColumns';
 import { Subscription } from 'rxjs';
 import { ITableColumn } from '../../interfaces/IGenericTableAndForm';
+import { IData } from '../../interfaces/union';
 
 @Component({
   selector: 'app-loan-requests',
@@ -14,7 +15,7 @@ import { ITableColumn } from '../../interfaces/IGenericTableAndForm';
   styleUrl: './loan-requests.component.scss',
 })
 export class LoanRequestsComponent implements OnInit, OnDestroy {
-  tableData: ILoanRequest[] = [];
+  data: IData = { items: [], count: 0 };
   tableColumns: ITableColumn[] = Object.values(loanRequestsColumns).map(
     (value) => value.tableColumn
   );
@@ -24,8 +25,25 @@ export class LoanRequestsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.dataSubscription = this.dataService
       .fetchLoanRequests()
-      .subscribe((loanRequests: ILoanRequest[]) => {
-        this.tableData = loanRequests;
+      .subscribe((data: IData) => {
+        this.data = data;
+      });
+  }
+
+  updatePage(page: number) {
+    this.dataService.page = page;
+    this.dataSubscription = this.dataService
+      .fetchLoanRequests()
+      .subscribe((data: IData) => {
+        this.data = data;
+      });
+  }
+  updatePerPage(perPage: number) {
+    this.dataService.perPage = perPage;
+    this.dataSubscription = this.dataService
+      .fetchLoanRequests()
+      .subscribe((data: IData) => {
+        this.data = data;
       });
   }
 

@@ -1,4 +1,7 @@
 <app-generic-table 
-  [data]="tableData" 
-  [columns]="tableColumns">
+  [data]="data" 
+  [columns]="tableColumns"
+  (page)="updatePage($event)"
+  (perPage)="updatePerPage($event)"
+  >
 </app-generic-table>

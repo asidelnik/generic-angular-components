@@ -5,6 +5,7 @@ import { GenericTableComponent } from '../../shared/components/generic-table/gen
 import { subLoanTypesColumns } from '../../constants/table-columns/subLoanTypesColumns';
 import { Subscription } from 'rxjs';
 import { ITableColumn } from '../../interfaces/IGenericTableAndForm';
+import { IData } from '../../interfaces/union';
 
 @Component({
   selector: 'app-sub-loan-types',
@@ -14,7 +15,7 @@ import { ITableColumn } from '../../interfaces/IGenericTableAndForm';
   styleUrl: './sub-loan-types.component.scss',
 })
 export class SubLoanTypesComponent implements OnInit, OnDestroy {
-  tableData: ISubLoanType[] = [];
+  data: IData = { items: [], count: 0 };
   tableColumns: ITableColumn[] = Object.values(subLoanTypesColumns).map(
     (value) => value.tableColumn
   );
@@ -24,8 +25,26 @@ export class SubLoanTypesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.dataSubscription = this.dataService
       .fetchSubLoanTypes()
-      .subscribe((subLoanTypes: ISubLoanType[]) => {
-        this.tableData = subLoanTypes;
+      .subscribe((data: IData) => {
+        this.data = data;
+      });
+  }
+
+  updatePage(page: number) {
+    this.dataService.page = page;
+    this.dataSubscription = this.dataService
+      .fetchSubLoanTypes()
+      .subscribe((data: IData) => {
+        this.data = data;
+      });
+  }
+
+  updatePerPage(perPage: number) {
+    this.dataService.perPage = perPage;
+    this.dataSubscription = this.dataService
+      .fetchSubLoanTypes()
+      .subscribe((data: IData) => {
+        this.data = data;
       });
   }
 
