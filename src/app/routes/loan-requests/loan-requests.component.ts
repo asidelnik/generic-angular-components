@@ -15,7 +15,15 @@ import { IData } from '../../interfaces/union';
   styleUrl: './loan-requests.component.scss',
 })
 export class LoanRequestsComponent implements OnInit, OnDestroy {
-  data: IData = { items: [], count: 0 };
+  data: IData = {
+    data: [],
+    items: 0,
+    first: 0,
+    last: 0,
+    pages: 0,
+    next: null,
+    prev: null,
+  };
   tableColumns: ITableColumn[] = Object.values(loanRequestsColumns).map(
     (value) => value.tableColumn
   );

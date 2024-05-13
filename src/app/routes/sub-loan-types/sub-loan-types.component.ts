@@ -15,7 +15,15 @@ import { IData } from '../../interfaces/union';
   styleUrl: './sub-loan-types.component.scss',
 })
 export class SubLoanTypesComponent implements OnInit, OnDestroy {
-  data: IData = { items: [], count: 0 };
+  data: IData = {
+    data: [],
+    items: 0,
+    first: 0,
+    last: 0,
+    pages: 0,
+    next: null,
+    prev: null,
+  };
   tableColumns: ITableColumn[] = Object.values(subLoanTypesColumns).map(
     (value) => value.tableColumn
   );

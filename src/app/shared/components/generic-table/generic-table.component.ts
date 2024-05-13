@@ -24,6 +24,7 @@ import {
   MatPaginatorModule,
   PageEvent,
 } from '@angular/material/paginator';
+import { DataService } from '../../services/data/data.service';
 
 @Component({
   selector: 'app-generic-table',
@@ -40,7 +41,15 @@ import {
 })
 export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[] = [];
-  @Input() data: IData = { items: [], count: 0 };
+  @Input() data: IData = {
+    data: [],
+    items: 0,
+    first: 0,
+    last: 0,
+    pages: 0,
+    next: null,
+    prev: null,
+  };
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<IDataUnion> = new MatTableDataSource();
   @Output() page = new EventEmitter<number>();
@@ -53,7 +62,8 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
     private datePipe: DatePipe,
     private currencyPipe: CurrencyPipe,
     private decimalPipe: DecimalPipe
-  ) {}
+  ) // private dataService: DataService
+  {}
 
   ngOnInit() {
     this.displayedColumns = this.columns
@@ -64,6 +74,9 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.paginator.page.subscribe((pageEvent: PageEvent) => {
+      // console.log(pageEvent);
+      // this.dataService.perPage = pageEvent.pageSize;
+      // this.dataService.page = pageEvent.pageIndex;
       this.page.emit(pageEvent.pageIndex);
       this.perPage.emit(pageEvent.pageSize);
     });
@@ -71,8 +84,8 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
-      this.dataSource = new MatTableDataSource(this.data.items);
-      if (this.data.items.length > 0) this.isLoading = false;
+      this.dataSource = new MatTableDataSource(this.data.data);
+      if (this.data?.data?.length > 0) this.isLoading = false;
     }
   }
 
