@@ -1,12 +1,15 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
+  Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
-import { DataUnionType } from '../../../interfaces/union';
+import { IData, IDataUnion } from '../../../interfaces/union';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {
@@ -16,20 +19,35 @@ import {
   DecimalPipe,
 } from '@angular/common';
 import { ITableColumn } from '../../../interfaces/IGenericTableAndForm';
+import {
+  MatPaginator,
+  MatPaginatorModule,
+  PageEvent,
+} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-generic-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatProgressSpinnerModule, DatePipe],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    DatePipe,
+    MatPaginatorModule,
+  ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
 })
 export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[] = [];
-  @Input() data: DataUnionType[] = [];
+  @Input() data: IData = { items: [], count: 0 };
   displayedColumns: string[] = [];
-  dataSource: MatTableDataSource<DataUnionType> = new MatTableDataSource();
+  dataSource: MatTableDataSource<IDataUnion> = new MatTableDataSource();
+  @Output() page = new EventEmitter<number>();
+
+  @Output() perPage = new EventEmitter<number>();
   isLoading = true;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private datePipe: DatePipe,
@@ -43,10 +61,18 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
       .map((field) => field.label);
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.paginator.page.subscribe((pageEvent: PageEvent) => {
+      this.page.emit(pageEvent.pageIndex);
+      this.perPage.emit(pageEvent.pageSize);
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
-      this.dataSource = new MatTableDataSource(this.data);
-      if (this.data.length > 0) this.isLoading = false;
+      this.dataSource = new MatTableDataSource(this.data.items);
+      if (this.data.items.length > 0) this.isLoading = false;
     }
   }
 

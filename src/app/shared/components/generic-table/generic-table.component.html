@@ -23,9 +23,23 @@
     </ng-container>
 
     <!-- Define columns to be displayed in the header row -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns" sticky class="table-header-row"></tr>
-    
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      sticky
+    ></tr>
+
     <!-- Define columns to be displayed in the data rows -->
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+
+  <!-- Pagination -->
+  <mat-paginator
+    [length]="data.count"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    showFirstLastButtons
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </div>
