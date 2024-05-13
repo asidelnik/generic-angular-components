@@ -10,6 +10,7 @@ import {
   DecimalPipe,
 } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,5 +21,6 @@ export const appConfig: ApplicationConfig = {
     DecimalPipe,
     CommonModule,
     MatProgressSpinnerModule,
+    provideAnimations(),
   ],
 };
