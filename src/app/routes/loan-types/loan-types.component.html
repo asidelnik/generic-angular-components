@@ -1,7 +1,6 @@
 <app-generic-table
   [data]="data"
   [columns]="tableColumns"
-  (page)="updatePage($event)"
-  (perPage)="updatePerPage($event)"
+  (getPaginatedData)="getPaginatedData()"
 >
 </app-generic-table>

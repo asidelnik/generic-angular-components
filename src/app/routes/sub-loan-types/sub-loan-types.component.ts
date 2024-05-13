@@ -31,6 +31,7 @@ export class SubLoanTypesComponent implements OnInit, OnDestroy {
 
   constructor(private dataService: DataService) {}
   ngOnInit() {
+    this.dataService.page = 1;
     this.dataSubscription = this.dataService
       .fetchSubLoanTypes()
       .subscribe((data: IData) => {
@@ -38,17 +39,7 @@ export class SubLoanTypesComponent implements OnInit, OnDestroy {
       });
   }
 
-  updatePage(page: number) {
-    this.dataService.page = page;
-    this.dataSubscription = this.dataService
-      .fetchSubLoanTypes()
-      .subscribe((data: IData) => {
-        this.data = data;
-      });
-  }
-
-  updatePerPage(perPage: number) {
-    this.dataService.perPage = perPage;
+  getPaginatedData() {
     this.dataSubscription = this.dataService
       .fetchSubLoanTypes()
       .subscribe((data: IData) => {

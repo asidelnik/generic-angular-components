@@ -8,7 +8,7 @@ import { IData } from '../../../interfaces/union';
   providedIn: 'root',
 })
 export class DataService {
-  page: number = 0;
+  page: number = 1;
   perPage: number = 5;
   constructor(private http: HttpClient) {}
 

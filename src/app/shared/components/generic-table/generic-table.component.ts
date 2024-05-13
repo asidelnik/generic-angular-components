@@ -52,18 +52,17 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
   };
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<IDataUnion> = new MatTableDataSource();
-  @Output() page = new EventEmitter<number>();
+  @Output() getPaginatedData: EventEmitter<void> = new EventEmitter<void>();
 
-  @Output() perPage = new EventEmitter<number>();
   isLoading = true;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private datePipe: DatePipe,
     private currencyPipe: CurrencyPipe,
-    private decimalPipe: DecimalPipe
-  ) // private dataService: DataService
-  {}
+    private decimalPipe: DecimalPipe,
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
     this.displayedColumns = this.columns
@@ -74,11 +73,9 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.paginator.page.subscribe((pageEvent: PageEvent) => {
-      // console.log(pageEvent);
-      // this.dataService.perPage = pageEvent.pageSize;
-      // this.dataService.page = pageEvent.pageIndex;
-      this.page.emit(pageEvent.pageIndex);
-      this.perPage.emit(pageEvent.pageSize);
+      this.dataService.perPage = pageEvent.pageSize;
+      this.dataService.page = pageEvent.pageIndex + 1;
+      this.getPaginatedData.emit();
     });
   }
 
