@@ -5,7 +5,7 @@ header {
   align-items: center;
   height: 70px;
   padding-inline-start: 20px;
-  background-color: white;
+  background-color: hsl(0, 0%, 94%);
 
   h3 {
     margin: 0;
@@ -18,7 +18,7 @@ main {
   justify-content: flex-start;
   align-items: flex-start;
   height: calc(100vh - 70px);
-  background-color: hsl(0, 0%, 94%);
+  background-color: white;
   
   nav {
     height: 100%;
@@ -26,23 +26,21 @@ main {
     display: flex;
     flex-direction: column;
     padding: 15px 15px 0 15px;
-    background-color: hsl(0, 0%, 88%);
+    background-color: hsl(0, 0%, 96%);
 
     a {
       padding: 15px 10px 15px 20px;
       text-decoration: none;
       color: #333;
       border-radius: 50px;
-      // background-color: #fff;
-      // border-bottom: 1px solid #ddd;
 
       &:hover {
-        background-color: hsl(0, 0%, 94%);
+        background-color: hsl(0, 0%, 92%);
         cursor: pointer;
       }
       
       &.active {
-        background-color: hsl(0, 0%, 94%);
+        background-color: hsl(0, 0%, 92%);
         cursor: pointer;
       }
     }
@@ -51,11 +49,5 @@ main {
   section {
     height: 100%;
     flex: 1 1 auto;
-    // width: calc(100% - 260px);
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: flex-start;
-    // align-items: flex-start;
-    // padding: 20px;
   }
 }
