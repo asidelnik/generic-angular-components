@@ -1,5 +1,10 @@
 header {
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 70px;
+  padding-inline-start: 20px;
   background-color: white;
 
   h3 {
@@ -12,7 +17,7 @@ main {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  height: calc(100vh - 67px);
+  height: calc(100vh - 70px);
   background-color: hsl(0, 0%, 94%);
   
   nav {
