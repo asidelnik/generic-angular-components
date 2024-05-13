@@ -21,6 +21,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 15px 15px 0 15px;
+    background-color: hsl(0, 0%, 88%);
 
     a {
       padding: 15px 10px 15px 20px;
@@ -36,7 +37,7 @@ main {
       }
       
       &.active {
-        background-color: hsl(0, 0%, 87%);
+        background-color: hsl(0, 0%, 94%);
         cursor: pointer;
       }
     }
