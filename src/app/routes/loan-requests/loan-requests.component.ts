@@ -4,7 +4,10 @@ import { DataService } from '../../shared/services/data/data.service';
 import { GenericTableComponent } from '../../shared/components/generic-table/generic-table.component';
 import { loanRequestsColumns } from '../../constants/table-columns/loanRequestsColumns';
 import { Subscription } from 'rxjs';
-import { ITableColumn } from '../../interfaces/IGenericTableAndForm';
+import {
+  FieldsData,
+  ITableColumn,
+} from '../../interfaces/IGenericTableAndForm';
 import { IData } from '../../interfaces/union';
 
 @Component({
@@ -15,6 +18,7 @@ import { IData } from '../../interfaces/union';
   styleUrl: './loan-requests.component.scss',
 })
 export class LoanRequestsComponent implements OnInit, OnDestroy {
+  metaData: FieldsData<ILoanRequest> = loanRequestsColumns;
   data: IData = {
     data: [],
     items: 0,
@@ -24,9 +28,6 @@ export class LoanRequestsComponent implements OnInit, OnDestroy {
     next: null,
     prev: null,
   };
-  tableColumns: ITableColumn[] = Object.values(loanRequestsColumns).map(
-    (value) => value.tableColumn
-  );
   dataSubscription: Subscription = new Subscription();
 
   constructor(private dataService: DataService) {}
