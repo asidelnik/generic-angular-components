@@ -24,7 +24,7 @@
 
     <!-- Define columns to be displayed in the header row -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns" sticky></tr>
-    
+
     <!-- Define columns to be displayed in the data rows -->
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
@@ -40,4 +40,12 @@
     aria-label="Select page"
   >
   </mat-paginator>
+  <button
+    mat-flat-button
+    color="primary"
+    aria-label="Add"
+    (click)="openAddPanel()"
+  >
+    Add
+  </button>
 </div>

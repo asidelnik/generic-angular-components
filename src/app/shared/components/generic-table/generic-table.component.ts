@@ -4,7 +4,6 @@ import {
   Input,
   OnChanges,
   OnDestroy,
-  OnInit,
   Output,
   SimpleChanges,
   ViewChild,
@@ -18,13 +17,18 @@ import {
   DatePipe,
   DecimalPipe,
 } from '@angular/common';
-import { ITableColumn } from '../../../interfaces/IGenericTableAndForm';
+import {
+  FieldsData,
+  IFormField,
+  ITableColumn,
+} from '../../../interfaces/IGenericTableAndForm';
 import {
   MatPaginator,
   MatPaginatorModule,
   PageEvent,
 } from '@angular/material/paginator';
 import { DataService } from '../../services/data/data.service';
+// import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-generic-table',
@@ -35,12 +39,15 @@ import { DataService } from '../../services/data/data.service';
     MatProgressSpinnerModule,
     DatePipe,
     MatPaginatorModule,
+    // MatButtonModule,
   ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
 })
-export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() columns: ITableColumn[] = [];
+export class GenericTableComponent implements OnChanges, OnDestroy {
+  @Input() metaData: FieldsData<IDataUnion> | undefined = undefined;
+  columns: ITableColumn[] = [];
+  formFields: IFormField[] = [];
   @Input() data: IData = {
     data: [],
     items: 0,
@@ -64,12 +71,6 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
     private dataService: DataService
   ) {}
 
-  ngOnInit() {
-    this.displayedColumns = this.columns
-      .sort((a, b) => a.order - b.order)
-      .map((field) => field.label);
-  }
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.paginator.page.subscribe((pageEvent: PageEvent) => {
@@ -83,6 +84,19 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
     if (changes['data']) {
       this.dataSource = new MatTableDataSource(this.data.data);
       if (this.data?.data?.length > 0) this.isLoading = false;
+    }
+    if (changes['metaData'] && this.metaData) {
+      this.columns = Object.values(this.metaData).map(
+        (value) => value.tableColumn
+      );
+
+      this.formFields = Object.values(this.metaData)
+        .filter((v) => v.formField)
+        .map((value) => value.formField as IFormField);
+
+      this.displayedColumns = this.columns
+        .sort((a, b) => a.order - b.order)
+        .map((field) => field.label);
     }
   }
 
@@ -99,6 +113,10 @@ export class GenericTableComponent implements OnInit, OnChanges, OnDestroy {
 
     return data;
   }
+
+  // openAddPanel() {
+  //   console.log('Add Panel Opened');
+  // }
 
   ngOnDestroy() {
     this.dataSource = new MatTableDataSource();
