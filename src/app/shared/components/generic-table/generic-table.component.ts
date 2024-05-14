@@ -29,6 +29,8 @@ import {
 } from '@angular/material/paginator';
 import { DataService } from '../../services/data/data.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { AddPanelComponent } from '../add-panel/add-panel.component';
 
 @Component({
   selector: 'app-generic-table',
@@ -40,6 +42,8 @@ import { MatButtonModule } from '@angular/material/button';
     DatePipe,
     MatPaginatorModule,
     MatButtonModule,
+    AddPanelComponent,
+    MatDialogModule,
   ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
@@ -68,7 +72,8 @@ export class GenericTableComponent implements OnChanges, OnDestroy {
     private datePipe: DatePipe,
     private currencyPipe: CurrencyPipe,
     private decimalPipe: DecimalPipe,
-    private dataService: DataService
+    private dataService: DataService,
+    public dialog: MatDialog
   ) {}
 
   ngAfterViewInit() {
@@ -114,8 +119,14 @@ export class GenericTableComponent implements OnChanges, OnDestroy {
     return data;
   }
 
-  openAddPanel() {
-    console.log('Add Panel Opened');
+  showAddPanel() {
+    const dialogRef = this.dialog.open(AddPanelComponent, {
+      data: this.formFields,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   ngOnDestroy() {
