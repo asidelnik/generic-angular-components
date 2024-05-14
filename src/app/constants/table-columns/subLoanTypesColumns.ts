@@ -23,7 +23,12 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'Loan Type ID',
+      name: 'loanTypeId',
+      type: 'autocomplete',
+      required: true,
+    },
     tableFilterField: null,
   },
   name: {
@@ -35,7 +40,12 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'Name',
+      name: 'name',
+      type: 'text',
+      required: true,
+    },
     tableFilterField: null,
   },
   description: {
@@ -47,7 +57,12 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'Description',
+      name: 'description',
+      type: 'text',
+      required: true,
+    },
     tableFilterField: null,
   },
   interestRate: {
@@ -59,7 +74,12 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'decimal',
     },
-    formField: null,
+    formField: {
+      label: 'Interest Rate',
+      name: 'interestRate',
+      type: 'number',
+      required: true,
+    },
     tableFilterField: null,
   },
   minAmount: {
@@ -71,7 +91,12 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'currency',
     },
-    formField: null,
+    formField: {
+      label: 'Min Amount',
+      name: 'minAmount',
+      type: 'number',
+      required: true,
+    },
     tableFilterField: null,
   },
   maxAmount: {
@@ -83,7 +108,14 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'currency',
     },
-    formField: null,
+    formField: {
+      label: 'Max Amount',
+      name: 'maxAmount',
+      type: 'number',
+      required: true,
+      dependentField: 'minAmount',
+      dependentCondition: 'greater',
+    },
     tableFilterField: null,
   },
   minPeriod: {
@@ -97,6 +129,7 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
     },
     formField: {
       label: 'Min Period',
+      name: 'minPeriod',
       type: 'number',
       required: true,
     },
@@ -115,25 +148,33 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'Max Period',
+      name: 'maxPeriod',
+      type: 'number',
+      required: true,
+      dependentField: 'minPeriod',
+      dependentCondition: 'greater',
+    },
     tableFilterField: null,
   },
-  status: {
+  isActive: {
     type: 'boolean',
     tableColumn: {
-      label: 'Status',
-      name: 'status',
+      label: 'Is Active',
+      name: 'isActive',
       order: 10,
       isSortable: false,
-      pipe: 'string',
+      pipe: 'isActive',
     },
     formField: {
-      label: 'Status',
+      label: 'Is Active',
+      name: 'isActive',
       type: 'checkbox',
       required: true,
     },
     tableFilterField: {
-      label: 'Status',
+      label: 'Is Active',
       type: 'checkbox',
       required: true,
     },
@@ -147,11 +188,7 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'date',
     },
-    formField: {
-      label: 'Created At',
-      type: 'date',
-      required: true,
-    },
+    formField: null,
     tableFilterField: {
       label: 'Created At',
       type: 'date',
@@ -167,11 +204,7 @@ export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
       isSortable: false,
       pipe: 'date',
     },
-    formField: {
-      label: 'Updated At',
-      type: 'date',
-      required: true,
-    },
+    formField: null,
     tableFilterField: {
       label: 'Updated At',
       type: 'date',

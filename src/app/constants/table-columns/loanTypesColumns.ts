@@ -14,6 +14,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'ID',
+      name: 'id',
       type: 'number',
       required: true,
     },
@@ -30,6 +31,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'Name',
+      name: 'name',
       type: 'text',
       required: true,
     },
@@ -50,6 +52,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'Description',
+      name: 'description',
       type: 'text',
       required: true,
     },
@@ -70,6 +73,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'Interest Rate',
+      name: 'interestRate',
       type: 'number',
       required: true,
     },
@@ -90,6 +94,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'Min Amount',
+      name: 'minAmount',
       type: 'number',
       required: true,
     },
@@ -110,6 +115,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'Max Amount',
+      name: 'maxAmount',
       type: 'number',
       required: true,
     },
@@ -130,6 +136,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'Min Period',
+      name: 'minPeriod',
       type: 'number',
       required: true,
     },
@@ -150,6 +157,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
     },
     formField: {
       label: 'Max Period',
+      name: 'maxPeriod',
       type: 'number',
       required: true,
     },
@@ -159,22 +167,23 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
       required: true,
     },
   },
-  status: {
+  isActive: {
     type: 'boolean',
     tableColumn: {
-      label: 'Status',
-      name: 'status',
+      label: 'Is Active',
+      name: 'isActive',
       order: 9,
       isSortable: false,
-      pipe: 'string',
+      pipe: 'isActive',
     },
     formField: {
-      label: 'Status',
+      label: 'Is Active',
+      name: 'isActive',
       type: 'checkbox',
       required: true,
     },
     tableFilterField: {
-      label: 'Status',
+      label: 'Is Active',
       type: 'checkbox',
       required: true,
     },
@@ -188,11 +197,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
       isSortable: false,
       pipe: 'date',
     },
-    formField: {
-      label: 'Created At',
-      type: 'date',
-      required: true,
-    },
+    formField: null,
     tableFilterField: {
       label: 'Created At',
       type: 'date',
@@ -208,11 +213,7 @@ export const loanTypesFieldsData: FieldsData<ILoanType> = {
       isSortable: false,
       pipe: 'date',
     },
-    formField: {
-      label: 'Updated At',
-      type: 'date',
-      required: true,
-    },
+    formField: null,
     tableFilterField: {
       label: 'Updated At',
       type: 'date',

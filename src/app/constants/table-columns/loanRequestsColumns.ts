@@ -23,7 +23,12 @@ export const loanRequestsColumns: FieldsData<ILoanRequest> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'User ID',
+      name: 'userId',
+      type: 'autocomplete',
+      required: true,
+    },
     tableFilterField: null,
   },
   loanTypeId: {
@@ -35,7 +40,12 @@ export const loanRequestsColumns: FieldsData<ILoanRequest> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'Loan Type ID',
+      name: 'loanTypeId',
+      type: 'autocomplete',
+      required: true,
+    },
     tableFilterField: null,
   },
   subLoanTypeId: {
@@ -47,7 +57,12 @@ export const loanRequestsColumns: FieldsData<ILoanRequest> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'Sub Loan Type ID',
+      name: 'subLoanTypeId',
+      type: 'autocomplete',
+      required: true,
+    },
     tableFilterField: null,
   },
   amount: {
@@ -59,7 +74,12 @@ export const loanRequestsColumns: FieldsData<ILoanRequest> = {
       isSortable: false,
       pipe: 'currency',
     },
-    formField: null,
+    formField: {
+      label: 'Amount',
+      name: 'amount',
+      type: 'number',
+      required: true,
+    },
     tableFilterField: null,
   },
   period: {
@@ -71,19 +91,29 @@ export const loanRequestsColumns: FieldsData<ILoanRequest> = {
       isSortable: false,
       pipe: 'string',
     },
-    formField: null,
+    formField: {
+      label: 'Period',
+      name: 'period',
+      type: 'number',
+      required: true,
+    },
     tableFilterField: null,
   },
-  status: {
+  isActive: {
     type: 'string',
     tableColumn: {
-      label: 'Status',
-      name: 'status',
+      label: 'Is Active',
+      name: 'isActive',
       order: 7,
       isSortable: false,
-      pipe: 'string',
+      pipe: 'isActive',
     },
-    formField: null,
+    formField: {
+      label: 'Is Active',
+      name: 'isActive',
+      type: 'text',
+      required: true,
+    },
     tableFilterField: null,
   },
   createdAt: {
@@ -95,11 +125,7 @@ export const loanRequestsColumns: FieldsData<ILoanRequest> = {
       isSortable: false,
       pipe: 'date',
     },
-    formField: {
-      label: 'Created At',
-      type: 'date',
-      required: true,
-    },
+    formField: null,
     tableFilterField: {
       label: 'Created At',
       type: 'date',
@@ -115,11 +141,7 @@ export const loanRequestsColumns: FieldsData<ILoanRequest> = {
       isSortable: false,
       pipe: 'date',
     },
-    formField: {
-      label: 'Updated At',
-      type: 'date',
-      required: true,
-    },
+    formField: null,
     tableFilterField: {
       label: 'Updated At',
       type: 'date',
