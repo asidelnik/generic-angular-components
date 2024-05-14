@@ -3,7 +3,7 @@ export interface ITableColumn {
   name: string;
   order: number;
   isSortable: boolean;
-  pipe: 'string' | 'date' | 'currency' | 'decimal';
+  pipe: 'string' | 'date' | 'currency' | 'decimal' | 'isActive';
 }
 
 export interface ITableFilterField {
@@ -20,9 +20,11 @@ export interface ITableFilterField {
 
 export interface IFormField {
   label: string;
+  name: string;
   type:
     | 'text'
     | 'select'
+    | 'autocomplete'
     | 'checkbox'
     | 'date'
     | 'number'
@@ -32,6 +34,8 @@ export interface IFormField {
   options?: string[];
   value?: string;
   validators?: any[];
+  dependentField?: string;
+  dependentCondition?: 'greater' | 'less' | 'equal';
 }
 
 export interface IField {
