@@ -28,7 +28,7 @@ import {
   PageEvent,
 } from '@angular/material/paginator';
 import { DataService } from '../../services/data/data.service';
-// import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-generic-table',
@@ -39,7 +39,7 @@ import { DataService } from '../../services/data/data.service';
     MatProgressSpinnerModule,
     DatePipe,
     MatPaginatorModule,
-    // MatButtonModule,
+    MatButtonModule,
   ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
@@ -114,9 +114,9 @@ export class GenericTableComponent implements OnChanges, OnDestroy {
     return data;
   }
 
-  // openAddPanel() {
-  //   console.log('Add Panel Opened');
-  // }
+  openAddPanel() {
+    console.log('Add Panel Opened');
+  }
 
   ngOnDestroy() {
     this.dataSource = new MatTableDataSource();

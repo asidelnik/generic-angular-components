@@ -11,6 +11,7 @@ import {
 } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { MatButton } from '@angular/material/button';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,5 +23,6 @@ export const appConfig: ApplicationConfig = {
     CommonModule,
     MatProgressSpinnerModule,
     provideAnimations(),
+    MatButton,
   ],
 };
