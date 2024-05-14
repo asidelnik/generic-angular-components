@@ -6,7 +6,7 @@ export interface ITableColumn {
   pipe: 'string' | 'date' | 'currency' | 'decimal';
 }
 
-interface ITableFilterField {
+export interface ITableFilterField {
   label: string;
   type: 'text' | 'select' | 'checkbox' | 'date' | 'number' | 'radio';
   options?: string[];
@@ -18,7 +18,7 @@ interface ITableFilterField {
   // enableIfDependentFieldNotValidated?: string;
 }
 
-interface IFormField {
+export interface IFormField {
   label: string;
   type:
     | 'text'

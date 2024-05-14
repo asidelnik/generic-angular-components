@@ -1,8 +1,8 @@
 import { FieldsData } from '../../interfaces/IGenericTableAndForm';
 import { ILoanType } from '../../interfaces/ILoanType';
 
-type LoanTypesFieldsDataType = FieldsData<ILoanType>;
-export const loanTypesFieldsData: LoanTypesFieldsDataType = {
+// type LoanTypesFieldsDataType = FieldsData<ILoanType>;
+export const loanTypesFieldsData: FieldsData<ILoanType> = {
   id: {
     type: 'number',
     tableColumn: {

@@ -1,9 +1,7 @@
 import { FieldsData } from '../../interfaces/IGenericTableAndForm';
 import { ISubLoanType } from '../../interfaces/ISubLoanType';
 
-type SubLoanTypesFieldsDataType = FieldsData<ISubLoanType>;
-
-export const subLoanTypesColumns: SubLoanTypesFieldsDataType = {
+export const subLoanTypesColumns: FieldsData<ISubLoanType> = {
   id: {
     type: 'number',
     tableColumn: {
