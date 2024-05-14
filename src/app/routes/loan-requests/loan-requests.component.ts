@@ -4,10 +4,7 @@ import { DataService } from '../../shared/services/data/data.service';
 import { GenericTableComponent } from '../../shared/components/generic-table/generic-table.component';
 import { loanRequestsColumns } from '../../constants/table-columns/loanRequestsColumns';
 import { Subscription } from 'rxjs';
-import {
-  FieldsData,
-  ITableColumn,
-} from '../../interfaces/IGenericTableAndForm';
+import { FieldsData } from '../../interfaces/IGenericTableAndForm';
 import { IData } from '../../interfaces/union';
 
 @Component({

@@ -114,6 +114,8 @@ export class GenericTableComponent implements OnChanges, OnDestroy {
       return this.currencyPipe.transform(data, 'USD');
     } else if (column.pipe === 'decimal') {
       return this.decimalPipe.transform(data, '1.2-2');
+    } else if (column.pipe === 'isActive') {
+      return data ? 'Active' : 'Inactive';
     }
 
     return data;

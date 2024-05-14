@@ -4,11 +4,7 @@ import { ILoanType } from '../../interfaces/ILoanType';
 import { GenericTableComponent } from '../../shared/components/generic-table/generic-table.component';
 import { loanTypesFieldsData } from '../../constants/table-columns/loanTypesColumns';
 import { Subscription } from 'rxjs';
-import {
-  ITableColumn,
-  IFormField,
-  FieldsData,
-} from '../../interfaces/IGenericTableAndForm';
+import { FieldsData } from '../../interfaces/IGenericTableAndForm';
 import { IData } from '../../interfaces/union';
 
 @Component({

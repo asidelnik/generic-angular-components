@@ -5,7 +5,7 @@ export interface ILoanRequest {
   subLoanTypeId: number;
   amount: number;
   period: number;
-  status: string;
+  isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

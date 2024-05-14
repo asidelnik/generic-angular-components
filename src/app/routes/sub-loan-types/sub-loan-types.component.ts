@@ -4,10 +4,7 @@ import { ISubLoanType } from '../../interfaces/ISubLoanType';
 import { GenericTableComponent } from '../../shared/components/generic-table/generic-table.component';
 import { subLoanTypesColumns } from '../../constants/table-columns/subLoanTypesColumns';
 import { Subscription } from 'rxjs';
-import {
-  FieldsData,
-  ITableColumn,
-} from '../../interfaces/IGenericTableAndForm';
+import { FieldsData } from '../../interfaces/IGenericTableAndForm';
 import { IData } from '../../interfaces/union';
 
 @Component({

@@ -7,7 +7,7 @@ export interface ILoanType {
   maxAmount: number;
   minPeriod: number;
   maxPeriod: number;
-  status: boolean;
+  isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
