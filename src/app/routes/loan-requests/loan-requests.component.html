@@ -1,5 +1,7 @@
-<app-generic-table 
+<app-generic-table
   [metaData]="metaData"
-  [data]="data" 
-  (getPaginatedData)="getPaginatedData()">
+  [data]="data"
+  (getPaginatedData)="getPaginatedData()"
+  (emitFormData)="addItem($event)"
+>
 </app-generic-table>

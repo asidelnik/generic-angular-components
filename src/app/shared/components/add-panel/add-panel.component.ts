@@ -1,10 +1,15 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { IFormField } from '../../../interfaces/IGenericTableAndForm';
-import { MatDialogModule } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
+import { IDataUnion } from '../../../interfaces/union';
 
 @Component({
   selector: 'app-add-panel',
@@ -22,8 +27,10 @@ import { CommonModule } from '@angular/common';
 export class AddPanelComponent {
   @Input() formFields: IFormField[] = [];
   form: FormGroup = new FormGroup({});
-  @Output() closePanel: EventEmitter<void> = new EventEmitter<void>();
-  constructor() {}
+  constructor(
+    public dialogRef: MatDialogRef<AddPanelComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit() {
     this.formFields.forEach((field) => {
@@ -32,6 +39,6 @@ export class AddPanelComponent {
   }
 
   onSubmit() {
-    this.closePanel.emit();
+    this.dialogRef.close(this.form.value);
   }
 }

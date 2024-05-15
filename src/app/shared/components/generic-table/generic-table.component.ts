@@ -64,6 +64,8 @@ export class GenericTableComponent implements OnChanges, OnDestroy {
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<IDataUnion> = new MatTableDataSource();
   @Output() getPaginatedData: EventEmitter<void> = new EventEmitter<void>();
+  @Output() emitFormData: EventEmitter<IDataUnion> =
+    new EventEmitter<IDataUnion>();
 
   isLoading = true;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -126,8 +128,9 @@ export class GenericTableComponent implements OnChanges, OnDestroy {
       data: this.formFields,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe((result: IDataUnion) => {
       console.log(`Dialog result: ${result}`);
+      this.emitFormData.emit(result);
     });
   }
 

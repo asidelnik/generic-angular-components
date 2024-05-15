@@ -5,7 +5,7 @@ import { GenericTableComponent } from '../../shared/components/generic-table/gen
 import { subLoanTypesColumns } from '../../constants/table-columns/subLoanTypesColumns';
 import { Subscription } from 'rxjs';
 import { FieldsData } from '../../interfaces/IGenericTableAndForm';
-import { IData } from '../../interfaces/union';
+import { IData, IDataUnion } from '../../interfaces/union';
 
 @Component({
   selector: 'app-sub-loan-types',
@@ -43,6 +43,12 @@ export class SubLoanTypesComponent implements OnInit, OnDestroy {
       .subscribe((data: IData) => {
         this.data = data;
       });
+  }
+
+  addItem(data: IDataUnion) {
+    this.dataService.addSubLoanType(data as ISubLoanType).subscribe(() => {
+      this.getPaginatedData();
+    });
   }
 
   ngOnDestroy() {
