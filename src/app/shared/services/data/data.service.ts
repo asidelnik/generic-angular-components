@@ -3,6 +3,9 @@ import { catchError, Observable } from 'rxjs';
 import { baseUrl, serverPaths } from '../../../constants/api';
 import { HttpClient } from '@angular/common/http';
 import { IData } from '../../../interfaces/union';
+import { ILoanType } from '../../../interfaces/ILoanType';
+import { ISubLoanType } from '../../../interfaces/ISubLoanType';
+import { ILoanRequest } from '../../../interfaces/ILoanRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +38,26 @@ export class DataService {
 
   fetchLoanRequests(): Observable<IData> {
     return this.get<IData>(serverPaths.loanRequests);
+  }
+
+  private post<T>(endpoint: string, body: any): Observable<T> {
+    return this.http.post<T>(`${baseUrl}/${endpoint}`, body).pipe(
+      catchError<any, Observable<T>>((error) => {
+        console.error(error);
+        return new Observable<never>();
+      })
+    );
+  }
+
+  addLoanType(loanType: ILoanType): Observable<ILoanType> {
+    return this.post<ILoanType>(serverPaths.loantTypes, loanType);
+  }
+
+  addSubLoanType(subLoanType: ISubLoanType): Observable<ISubLoanType> {
+    return this.post<ISubLoanType>(serverPaths.subLoanTypes, subLoanType);
+  }
+
+  addLoanRequest(loanRequest: ILoanRequest): Observable<ILoanRequest> {
+    return this.post<ILoanRequest>(serverPaths.loanRequests, loanRequest);
   }
 }
