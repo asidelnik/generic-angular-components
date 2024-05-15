@@ -1,18 +1,22 @@
 <h2 mat-dialog-title>Add item</h2>
 <mat-dialog-content class="mat-typography">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div *ngFor="let field of formFields">
+  <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of data">
       <mat-form-field class="form-field">
+        <mat-label>{{ field.label }}</mat-label>
         <input
           matInput
           [formControlName]="field.name"
           [placeholder]="field.label"
           [type]="field.type"
+          [required]="field.required"
         />
+         <!-- <mat-hint>Hint</mat-hint> -->
       </mat-form-field>
     </div>
   </form>
 </mat-dialog-content>
+
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Add</button>
